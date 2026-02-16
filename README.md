@@ -14,12 +14,13 @@
 
 - ❌ **冷启动模式**：每条语音要等 **30~40 秒**才能转写完成，聊天体验严重割裂
 - ❌ **常驻内存模式**：启动速度改善，但要常年占用 **1.6GB 左右内存**，对于使用 VPS 部署的用户来说负担很重
-
-  ![Whisper 在 VPS 上的资源占用：CPU 97m/2000m，内存 1415MB/3560MB](docs/images/whisper-vps-memory.png)
-
 - ❌ **中文识别**：Whisper 为 100+ 语言平衡设计，中文不是强项，粤语更是不支持
 
 **SenseVoice 一次性解决所有问题**：模型 + 运行时总共只要 **287MB**，每次冷启动仅需 **~1 秒**就能完成转写 —— 快到根本不需要常驻内存。发条语音过来，回复几乎瞬间出现，和打字一样自然。
+
+> 下图为安装 openclaw-sensevoice 插件后的 VPS 实际资源占用，轻量无负担：
+>
+> ![安装 openclaw-sensevoice 后的 VPS 资源占用](docs/images/vps-resource-usage.png)
 
 | | 官方插件 (Whisper) | ⚡ SenseVoice |
 |---|---|---|
