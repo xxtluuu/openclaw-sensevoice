@@ -42,7 +42,7 @@ The official OpenClaw voice plugin is based on OpenAI Whisper, designed for inte
 ### Method 1: OpenClaw Plugin Install (Recommended)
 
 ```bash
-openclaw plugins install https://github.com/falebao/openclaw-sensevoice/releases/download/v0.2.0/openclaw-sensevoice-v0.2.0.tar.gz
+openclaw plugins install https://github.com/xxtluuu/openclaw-sensevoice/releases/download/v0.2.0/openclaw-sensevoice-v0.2.0.tar.gz
 ```
 
 After installation, run setup once to automatically download the model and configure:
@@ -56,7 +56,7 @@ After installation, run setup once to automatically download the model and confi
 ### Method 2: One-line Script
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/falebao/openclaw-sensevoice/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/xxtluuu/openclaw-sensevoice/main/install.sh | bash
 ```
 
 Automatically detects platform, downloads pre-compiled binary and model to `~/.openclaw/`.
@@ -64,7 +64,7 @@ Automatically detects platform, downloads pre-compiled binary and model to `~/.o
 ### Method 3: Build from Source
 
 ```bash
-git clone https://github.com/falebao/openclaw-sensevoice.git
+git clone https://github.com/xxtluuu/openclaw-sensevoice.git
 cd openclaw-sensevoice/rust
 cargo build --release
 ```

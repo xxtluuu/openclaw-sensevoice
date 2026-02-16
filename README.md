@@ -46,7 +46,7 @@
 ### 方式 1：OpenClaw 插件安装（推荐）
 
 ```bash
-openclaw plugins install https://github.com/falebao/openclaw-sensevoice/releases/download/v0.2.0/openclaw-sensevoice-v0.2.0.tar.gz
+openclaw plugins install https://github.com/xxtluuu/openclaw-sensevoice/releases/download/v0.2.0/openclaw-sensevoice-v0.2.0.tar.gz
 ```
 
 安装后运行一次 setup，自动下载模型并配置：
@@ -60,7 +60,7 @@ openclaw plugins install https://github.com/falebao/openclaw-sensevoice/releases
 ### 方式 2：一键脚本
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/falebao/openclaw-sensevoice/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/xxtluuu/openclaw-sensevoice/main/install.sh | bash
 ```
 
 自动检测平台、下载预编译二进制和模型到 `~/.openclaw/`。
@@ -68,7 +68,7 @@ curl -fsSL https://raw.githubusercontent.com/falebao/openclaw-sensevoice/main/in
 ### 方式 3：源码编译
 
 ```bash
-git clone https://github.com/falebao/openclaw-sensevoice.git
+git clone https://github.com/xxtluuu/openclaw-sensevoice.git
 cd openclaw-sensevoice/rust
 cargo build --release
 ```

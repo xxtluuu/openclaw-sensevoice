@@ -12,7 +12,7 @@
 ### 构建
 
 ```bash
-git clone https://github.com/falebao/openclaw-sensevoice.git
+git clone https://github.com/xxtluuu/openclaw-sensevoice.git
 cd openclaw-sensevoice/rust
 cargo build --release
 ```
@@ -57,7 +57,7 @@ openclaw-sensevoice/
 
 ## 报告问题
 
-请通过 [GitHub Issues](https://github.com/falebao/openclaw-sensevoice/issues) 提交，并尽量包含：
+请通过 [GitHub Issues](https://github.com/xxtluuu/openclaw-sensevoice/issues) 提交，并尽量包含：
 
 - 问题描述
 - 复现步骤

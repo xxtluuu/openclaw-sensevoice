@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="falebao/openclaw-sensevoice"
+REPO="xxtluuu/openclaw-sensevoice"
 VERSION="${SENSEVOICE_VERSION:-$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" | grep '"tag_name"' | sed 's/.*"v\(.*\)".*/\1/')}"
 
 if [[ -z "$VERSION" ]]; then
