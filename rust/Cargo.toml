@@ -1,0 +1,19 @@
+[package]
+name = "sensevoice-cli"
+version = "0.2.0"
+edition = "2021"
+
+[[bin]]
+name = "sensevoice-cli"
+path = "src/main.rs"
+
+[dependencies]
+sherpa-rs = { version = "0.6", default-features = false, features = ["download-binaries"] }
+symphonia = { version = "0.5", features = ["mp3", "aac", "alac", "flac", "isomp4", "wav", "pcm"] }
+rubato = "0.15"
+anyhow = "1"
+dirs = "5"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
