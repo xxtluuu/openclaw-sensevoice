@@ -1,4 +1,4 @@
-中文 | [English](README_EN.md)
+[中文](README.md) | English
 
 # ⚡ openclaw-sensevoice
 
@@ -13,7 +13,7 @@ The official OpenClaw voice plugin is based on OpenAI Whisper, designed for inte
 > **Either slow, or memory-hungry — and Chinese recognition still isn't great.**
 
 - ❌ **Cold start mode**: Each voice message takes **30~40 seconds** to transcribe, severely disrupting the chat experience
-- ❌ **Resident memory mode**: Startup speed improves, but permanently occupies **1.5GB of memory**, a heavy burden for laptop users
+- ❌ **Resident memory mode**: Startup speed improves, but permanently occupies **~1.6GB of memory**, a heavy burden for users deploying on VPS
 - ❌ **Chinese recognition**: Whisper is designed to balance 100+ languages, Chinese is not its strength, and Cantonese is not supported at all
 
 **SenseVoice solves all problems at once**: model + runtime totals only **287MB**, each cold start takes just **~1 second** to complete transcription — fast enough that there's no need to keep it resident in memory. Send a voice message, and the reply appears almost instantly, as natural as typing.
@@ -134,6 +134,16 @@ The official Whisper plugin's tech stack is Python + PyTorch. While the Python e
 **Installation size**: Binary + dynamic libraries ~59MB, model ~228MB, total approximately 287MB.
 
 **macOS users**: Unsigned binaries need Gatekeeper quarantine removed, the install script handles this automatically (`xattr -cr`).
+
+## 💡 Inspiration
+
+I used to voice-dictate everything with Claude Code on desktop — it was incredibly smooth. But when I switched to OpenClaw on mobile via IM, the voice experience was surprisingly poor — slow transcription, long waits, a completely different story.
+
+As the developer of [sayup.ai](https://www.sayup.ai), porting sayup's core engine over was the most natural thing to do — same tech stack, same blazing speed.
+
+If you want the same smooth voice input experience on desktop, check out the macOS client: **[www.sayup.ai](https://www.sayup.ai)** (Windows support is experimental — limited testing devices available).
+
+Follow me on X for updates: [@luuu2024](https://x.com/luuu2024)
 
 ## 📄 License
 
