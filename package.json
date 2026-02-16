@@ -1,7 +1,13 @@
 {
-  "name": "openclaw-sensevoice",
+  "name": "@openclaw/sensevoice",
   "version": "0.2.0",
-  "description": "Offline SenseVoice STT plugin for OpenClaw",
+  "description": "Offline SenseVoice STT plugin for OpenClaw — fast Chinese-optimized speech-to-text",
   "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xxtluuu/openclaw-sensevoice"
+  },
+  "keywords": ["openclaw", "stt", "speech-to-text", "sensevoice", "offline", "chinese", "cantonese"],
   "openclaw": { "extensions": ["./index.ts"] }
 }
