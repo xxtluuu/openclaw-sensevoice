@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/sensevoice",
+  "name": "openclaw-sensevoice",
   "version": "0.2.0",
   "description": "Offline SenseVoice STT plugin for OpenClaw — fast Chinese-optimized speech-to-text",
   "type": "module",
