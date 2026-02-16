@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - target: x86_64-apple-darwin
+            os: macos-13
+            platform: darwin-x86_64
+          - target: aarch64-apple-darwin
+            os: macos-14
+            platform: darwin-arm64
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-22.04
+            platform: linux-x86_64
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-22.04
+            platform: linux-arm64
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install cross-compilation tools (Linux ARM64)
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+      - name: Build
+        working-directory: rust
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Package
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          DIR="sensevoice-cli-${VERSION}-${{ matrix.platform }}"
+          mkdir -p "${DIR}/bin"
+          cp "rust/target/${{ matrix.target }}/release/sensevoice-cli" "${DIR}/bin/"
+          # Copy dynamic libraries
+          cp rust/target/${{ matrix.target }}/release/lib*.dylib "${DIR}/bin/" 2>/dev/null || true
+          cp rust/target/${{ matrix.target }}/release/lib*.so* "${DIR}/bin/" 2>/dev/null || true
+          tar czf "${DIR}.tar.gz" "${DIR}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}
+          path: "*.tar.gz"
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      - name: Generate SHA256 checksums
+        run: sha256sum *.tar.gz > checksums-sha256.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.tar.gz
+            checksums-sha256.txt
+          generate_release_notes: true
+
+      - name: Upload latest archive
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          for f in *.tar.gz; do
+            platform="${f#sensevoice-cli-${VERSION}-}"
+            platform="${platform%.tar.gz}"
+            cp "$f" "sensevoice-cli-latest-${platform}.tar.gz"
+          done
+        # Latest archives are included in the release for stable URLs

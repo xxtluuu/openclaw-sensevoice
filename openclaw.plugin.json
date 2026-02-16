@@ -1,0 +1,6 @@
+{
+  "id": "sensevoice",
+  "name": "SenseVoice Speech-to-Text",
+  "description": "Offline audio transcription (zh/en/ja/ko/yue) using SenseVoice",
+  "configSchema": { "type": "object", "additionalProperties": false, "properties": {} }
+}

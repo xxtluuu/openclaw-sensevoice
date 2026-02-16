@@ -1,0 +1,7 @@
+{
+  "name": "openclaw-sensevoice",
+  "version": "0.2.0",
+  "description": "Offline SenseVoice STT plugin for OpenClaw",
+  "type": "module",
+  "openclaw": { "extensions": ["./index.ts"] }
+}
